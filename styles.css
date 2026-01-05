@@ -156,6 +156,7 @@ h1, h2, h3 {
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%);
 }
 
 .gradient-orb {
@@ -163,6 +164,7 @@ h1, h2, h3 {
     border-radius: 50%;
     filter: blur(80px);
     opacity: 0.5;
+    pointer-events: none;
 }
 
 .orb-1 {
@@ -181,6 +183,43 @@ h1, h2, h3 {
     bottom: -100px;
     left: -100px;
     animation: float 10s ease-in-out infinite reverse;
+}
+
+/* Mobile orb adjustments - keep consistent with desktop */
+@media (max-width: 768px) {
+    .orb-1 {
+        width: 400px;
+        height: 400px;
+        top: -150px;
+        right: -150px;
+        opacity: 0.4;
+    }
+    
+    .orb-2 {
+        width: 300px;
+        height: 300px;
+        bottom: -100px;
+        left: -150px;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .orb-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+        opacity: 0.35;
+    }
+    
+    .orb-2 {
+        width: 250px;
+        height: 250px;
+        bottom: -80px;
+        left: -100px;
+        opacity: 0.35;
+    }
 }
 
 @keyframes float {
@@ -474,6 +513,10 @@ section {
 }
 
 /* Features */
+.features {
+    background: var(--color-bg);
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -586,6 +629,7 @@ section {
 /* CTA Section */
 .cta-section {
     padding: 80px 0;
+    background: var(--color-bg);
 }
 
 .cta-card {
